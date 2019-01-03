@@ -1,4 +1,4 @@
-# seventeen
+# fourteen
 
 > My extraordinary Nuxt.js project
 
