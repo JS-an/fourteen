@@ -1,7 +1,7 @@
 <template>
   <div class="admin-box">
     <btn class="btn"/>
-    <nuxt class="item"/>
+    <nuxt-child class="item"/>
   </div>
 </template>
 <script>

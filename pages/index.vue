@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <transition :name="transitionName">
-      <nuxt/>
+      <nuxt-child />
     </transition>
   </section>
 </template>
