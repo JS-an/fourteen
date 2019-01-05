@@ -2,18 +2,18 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
+const _106e2092 = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages_admin" */))
+const _3be4f758 = () => interopDefault(import('..\\pages\\admin\\article.vue' /* webpackChunkName: "pages_admin_article" */))
+const _6e882717 = () => interopDefault(import('..\\pages\\admin\\links.vue' /* webpackChunkName: "pages_admin_links" */))
+const _339e5246 = () => interopDefault(import('..\\pages\\admin\\user.vue' /* webpackChunkName: "pages_admin_user" */))
+const _3a23dff9 = () => interopDefault(import('..\\pages\\article.vue' /* webpackChunkName: "pages_article" */))
+const _6d65c311 = () => interopDefault(import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */))
+const _cdc1f728 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages_home" */))
+const _a149b008 = () => interopDefault(import('..\\pages\\links.vue' /* webpackChunkName: "pages_links" */))
+const _6eaf636c = () => interopDefault(import('..\\pages\\sign.vue' /* webpackChunkName: "pages_sign" */))
+const _03819506 = () => interopDefault(import('..\\pages\\account\\setpassword.vue' /* webpackChunkName: "pages_account_setpassword" */))
+const _25dbdd0a = () => interopDefault(import('..\\pages\\account\\user.vue' /* webpackChunkName: "pages_account_user" */))
 const _420266d6 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
-const _fd10da10 = () => interopDefault(import('..\\pages\\index\\admin\\index.vue' /* webpackChunkName: "pages_index_admin_index" */))
-const _d67136a4 = () => interopDefault(import('..\\pages\\index\\admin\\index\\article.vue' /* webpackChunkName: "pages_index_admin_index_article" */))
-const _1b1255f1 = () => interopDefault(import('..\\pages\\index\\admin\\index\\links.vue' /* webpackChunkName: "pages_index_admin_index_links" */))
-const _469864c3 = () => interopDefault(import('..\\pages\\index\\admin\\index\\user.vue' /* webpackChunkName: "pages_index_admin_index_user" */))
-const _1a614fb1 = () => interopDefault(import('..\\pages\\index\\article\\index.vue' /* webpackChunkName: "pages_index_article_index" */))
-const _a8002364 = () => interopDefault(import('..\\pages\\index\\home\\index.vue' /* webpackChunkName: "pages_index_home_index" */))
-const _4d3d7f64 = () => interopDefault(import('..\\pages\\index\\links\\index.vue' /* webpackChunkName: "pages_index_links_index" */))
-const _293122a0 = () => interopDefault(import('..\\pages\\index\\sign\\index.vue' /* webpackChunkName: "pages_index_sign_index" */))
-const _4c1334c5 = () => interopDefault(import('..\\pages\\index\\account\\setpassword.vue' /* webpackChunkName: "pages_index_account_setpassword" */))
-const _733f3333 = () => interopDefault(import('..\\pages\\index\\account\\user.vue' /* webpackChunkName: "pages_index_account_user" */))
-const _50b18a59 = () => interopDefault(import('..\\pages\\index\\article\\_id.vue' /* webpackChunkName: "pages_index_article__id" */))
 
 Vue.use(Router)
 
@@ -73,55 +73,55 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
-      path: "/",
-      component: _420266d6,
-      name: "index",
+      path: "/admin",
+      component: _106e2092,
+      name: "admin",
       children: [{
-        path: "admin",
-        component: _fd10da10,
-        name: "index-admin",
-        children: [{
-          path: "article",
-          component: _d67136a4,
-          name: "index-admin-index-article"
-        }, {
-          path: "links",
-          component: _1b1255f1,
-          name: "index-admin-index-links"
-        }, {
-          path: "user",
-          component: _469864c3,
-          name: "index-admin-index-user"
-        }]
-      }, {
         path: "article",
-        component: _1a614fb1,
-        name: "index-article"
-      }, {
-        path: "home",
-        component: _a8002364,
-        name: "index-home"
+        component: _3be4f758,
+        name: "admin-article"
       }, {
         path: "links",
-        component: _4d3d7f64,
-        name: "index-links"
+        component: _6e882717,
+        name: "admin-links"
       }, {
-        path: "sign",
-        component: _293122a0,
-        name: "index-sign"
-      }, {
-        path: "account/setpassword",
-        component: _4c1334c5,
-        name: "index-account-setpassword"
-      }, {
-        path: "account/user",
-        component: _733f3333,
-        name: "index-account-user"
-      }, {
-        path: "article/:id?",
-        component: _50b18a59,
-        name: "index-article-id"
+        path: "user",
+        component: _339e5246,
+        name: "admin-user"
       }]
+    }, {
+      path: "/article",
+      component: _3a23dff9,
+      name: "article",
+      children: [{
+        path: ":id?",
+        component: _6d65c311,
+        name: "article-id"
+      }]
+    }, {
+      path: "/home",
+      component: _cdc1f728,
+      name: "home"
+    }, {
+      path: "/links",
+      component: _a149b008,
+      name: "links"
+    }, {
+      path: "/sign",
+      component: _6eaf636c,
+      name: "sign"
+    }, {
+      path: "/account/setpassword",
+      component: _03819506,
+      name: "account-setpassword"
+    }, {
+      path: "/account/user",
+      component: _25dbdd0a,
+      name: "account-user"
+    }, {
+      path: "/",
+      component: _420266d6,
+      name: "index"
     }],
 
     fallback: false

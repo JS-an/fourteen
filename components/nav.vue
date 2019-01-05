@@ -3,8 +3,7 @@
     :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
-    router
-    @select="handleSelect">
+    router>
     <div class="home"/>
     <el-menu-item index="/home">主页</el-menu-item>
     <el-menu-item index="/article">文章</el-menu-item>
@@ -12,12 +11,23 @@
     <el-submenu
       :show-timeout="50"
       :hide-timeout="50"
-      index="/admin"
-      @click="isAdmin">
+      index="/admin">
       <template slot="title">管理</template>
-      <el-menu-item index="/admin/article">文章</el-menu-item>
-      <el-menu-item index="/admin/links">友链</el-menu-item>
-      <el-menu-item index="/admin/user">用户</el-menu-item>
+      <el-menu-item
+        index="/admin/article"
+        @click="isAdmin">
+        文章
+      </el-menu-item>
+      <el-menu-item
+        index="/admin/links"
+        @click="isAdmin">
+        友链
+      </el-menu-item>
+      <el-menu-item
+        index="/admin/user"
+        @click="isAdmin">
+        用户
+      </el-menu-item>
     </el-submenu>
     <el-submenu
       :show-timeout="50"
@@ -53,11 +63,11 @@ export default {
     }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      // console.log(key, keyPath)
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath)
     },
     isAdmin () {
-      if (this.user.role < 1) {
+      if (!this.user || this.user.role < 1) {
         this.$message({
           message: '你不是管理员！',
           type: 'warning',
@@ -91,8 +101,7 @@ export default {
 <style lang="scss" scoped>
 .el-menu {
   padding: 0;
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   justify-content: flex-end;
   .home {

@@ -1,6 +1,8 @@
 <template>
-  <section class="index-box">
-    index
+  <section class="setpassword-box">
+    <div>
+      set
+    </div>
   </section>
 </template>
 
@@ -13,4 +15,7 @@ export default {
 
 <style lang="scss" scope>
 
+.setpassword-box {
+  color: red;
+}
 </style>

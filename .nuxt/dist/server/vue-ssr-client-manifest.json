@@ -9,21 +9,21 @@
     "fonts/2fad952.woff",
     "fonts/6f0a763.ttf",
     "img/6621320.png",
+    "pages_account_setpassword.js",
+    "pages_account_user.js",
+    "pages_admin.js",
+    "pages_admin_article.js",
+    "pages_admin_links.js",
+    "pages_admin_user.js",
+    "pages_article.js",
+    "pages_article__id.js",
+    "pages_home.js",
     "pages_index.js",
-    "pages_index_account_setpassword.js",
-    "pages_index_account_user.js",
-    "pages_index_admin_index.js",
-    "pages_index_admin_index_article.js",
-    "pages_index_admin_index_links.js",
-    "pages_index_admin_index_user.js",
-    "pages_index_article__id.js",
-    "pages_index_article_index.js",
-    "pages_index_home_index.js",
-    "pages_index_links_index.js",
-    "pages_index_sign_index.js",
+    "pages_links.js",
+    "pages_sign.js",
     "runtime.js",
     "vendors.app.js",
-    "vendors.pages_index_admin_index_article.js"
+    "vendors.pages_admin_article.js"
   ],
   "initial": [
     "runtime.js",
@@ -32,24 +32,21 @@
     "app.js"
   ],
   "async": [
+    "pages_account_setpassword.js",
+    "pages_account_user.js",
+    "pages_admin.js",
+    "pages_admin_article.js",
+    "pages_admin_links.js",
+    "pages_admin_user.js",
+    "pages_article.js",
+    "pages_article__id.js",
+    "pages_home.js",
     "pages_index.js",
-    "pages_index_account_setpassword.js",
-    "pages_index_account_user.js",
-    "pages_index_admin_index.js",
-    "pages_index_admin_index_article.js",
-    "pages_index_admin_index_links.js",
-    "pages_index_admin_index_user.js",
-    "pages_index_article__id.js",
-    "pages_index_article_index.js",
-    "pages_index_home_index.js",
-    "pages_index_links_index.js",
-    "pages_index_sign_index.js",
-    "vendors.pages_index_admin_index_article.js"
+    "pages_links.js",
+    "pages_sign.js",
+    "vendors.pages_admin_article.js"
   ],
   "modules": {
-    "22234026": [
-      13
-    ],
     "46653043": [
       4
     ],
@@ -61,6 +58,9 @@
     ],
     "81640600": [
       22
+    ],
+    "89909882": [
+      18
     ],
     "95453738": [
       22
@@ -290,7 +290,7 @@
       3,
       7
     ],
-    "ca31b278": [
+    "68f22632": [
       3,
       7
     ],
@@ -344,6 +344,9 @@
       4
     ],
     "799f9bee": [
+      4
+    ],
+    "3d424163": [
       4
     ],
     "68154c09": [
@@ -437,9 +440,6 @@
       4
     ],
     "08abe464": [
-      4
-    ],
-    "3d424163": [
       4
     ],
     "470fff4b": [
@@ -782,11 +782,11 @@
       5,
       6
     ],
-    "7213019c": [
+    "ba9a7082": [
       3,
       7
     ],
-    "4e413dc3": [
+    "7ee103e6": [
       3,
       7
     ],
@@ -1120,14 +1120,11 @@
     "44740c98": [
       22
     ],
-    "f0bb9874": [
-      8
-    ],
     "a3e511ce": [
-      11
+      10
     ],
-    "128b5a99": [
-      11
+    "6b90a95c": [
+      10
     ],
     "dffb46f4": [
       22
@@ -1138,32 +1135,32 @@
     "0a270a5d": [
       22
     ],
-    "43d6a1dc": [
+    "17edf930": [
+      11
+    ],
+    "68f419d1": [
       12
     ],
-    "31f239ee": [
+    "3369d04e": [
       13
     ],
-    "2186f513": [
+    "9ef838bc": [
       14
     ],
-    "270d9e36": [
+    "2ceb0ad6": [
       16
     ],
-    "faff5cd6": [
-      17
-    ],
-    "12844f13": [
-      18
-    ],
-    "163246f7": [
+    "5c9ebd12": [
       19
     ],
-    "56fe6bd8": [
+    "257a926c": [
+      8
+    ],
+    "3cde92ba": [
       9
     ],
-    "697b3eb0": [
-      10
+    "f0bb9874": [
+      17
     ],
     "373b89ca": [
       22
@@ -1186,23 +1183,17 @@
     "3bd6457f": [
       22
     ],
-    "d46282c4": [
-      8
-    ],
-    "979fae76": [
-      8
-    ],
     "f58d5c1e": [
-      11
+      10
     ],
     "61678e18": [
-      11
+      10
     ],
-    "77e79a7e": [
-      11
+    "455d7f7a": [
+      10
     ],
-    "2951b27a": [
-      11
+    "ea3be69a": [
+      10
     ],
     "164f8526": [
       22
@@ -1384,111 +1375,120 @@
     "238215e8": [
       22
     ],
-    "5db0d204": [
-      12
-    ],
-    "7308ee86": [
-      12
-    ],
-    "496a5416": [
-      13
-    ],
-    "58b5650f": [
-      13
-    ],
-    "3b0ef5eb": [
-      14
-    ],
-    "4c1161d2": [
-      14
-    ],
-    "10a24f0e": [
-      16
-    ],
-    "7baf68f5": [
-      16
-    ],
-    "61dd0fbd": [
-      17
-    ],
-    "3134d194": [
-      17
-    ],
-    "1ebf55eb": [
-      18
-    ],
-    "4a47bd92": [
-      18
-    ],
-    "14e1f5c2": [
-      19
-    ],
-    "7b178c98": [
-      19
-    ],
-    "2a1378ec": [
-      9
-    ],
-    "e22d6cda": [
-      9
-    ],
-    "36bdda50": [
-      10
-    ],
-    "2a25a011": [
-      10
-    ],
-    "f7154250": [
-      15
-    ],
-    "67a84689": [
+    "74b12558": [
       11
     ],
-    "1b4695a3": [
+    "aad52cde": [
+      11
+    ],
+    "21642ff9": [
       12
     ],
-    "54d632e0": [
-      8
+    "6c63a31c": [
+      12
     ],
-    "5756dfee": [
+    "bc28c69e": [
+      13
+    ],
+    "2b7b6b18": [
+      13
+    ],
+    "348dcf0c": [
       14
     ],
-    "6c820070": [
+    "1d2ed63e": [
+      14
+    ],
+    "7e959686": [
       16
     ],
-    "bd4ab47e": [
-      17
+    "2a0b2c94": [
+      16
     ],
-    "d86ed31a": [
+    "6d3782d2": [
       18
     ],
-    "669eddc2": [
+    "3074ae84": [
+      18
+    ],
+    "ae4948c2": [
       19
     ],
-    "488711d2": [
+    "59beded0": [
+      19
+    ],
+    "525130bc": [
+      8
+    ],
+    "41e48189": [
+      8
+    ],
+    "2d60a4e2": [
       9
     ],
-    "65f23ac6": [
+    "5fc1d0db": [
+      9
+    ],
+    "d46282c4": [
+      17
+    ],
+    "979fae76": [
+      17
+    ],
+    "4dccae62": [
+      15
+    ],
+    "f374f246": [
       10
+    ],
+    "0f1841f7": [
+      11
+    ],
+    "015bf17a": [
+      12
+    ],
+    "cf4e97cc": [
+      13
+    ],
+    "d08a40f8": [
+      14
+    ],
+    "c627ae7e": [
+      16
+    ],
+    "25328e47": [
+      18
+    ],
+    "67151ac2": [
+      19
+    ],
+    "53f99148": [
+      8
+    ],
+    "70f64708": [
+      9
+    ],
+    "54d632e0": [
+      17
     ]
   },
   "assetsMapping": {
     "app.js": "1a3ae26b",
     "commons.app.js": "0859c165",
+    "pages_account_setpassword.js": "2f5cac8c",
+    "pages_account_user.js": "fa973ca4",
+    "pages_admin.js": "3c69f15e",
+    "pages_admin_article.js": "01f22715",
+    "pages_admin_links.js": "5c3aa598",
+    "pages_admin_user.js": "02fdde0c",
+    "pages_article.js": "3c0d1976",
+    "pages_article__id.js": "d3fe2c80",
+    "pages_home.js": "b1c0ee20",
     "pages_index.js": "3cdf16e1",
-    "pages_index_account_setpassword.js": "03fd28e6",
-    "pages_index_account_user.js": "3c70b73b",
-    "pages_index_admin_index.js": "c84278f8",
-    "pages_index_admin_index_article.js": "5ac5198a",
-    "pages_index_admin_index_links.js": "0b76c33e",
-    "pages_index_admin_index_user.js": "72d718b4",
-    "pages_index_article__id.js": "5465a2da",
-    "pages_index_article_index.js": "d069d92a",
-    "pages_index_home_index.js": "397214e0",
-    "pages_index_links_index.js": "33a7986e",
-    "pages_index_sign_index.js": "55a53fee",
+    "pages_links.js": "3d073dc8",
+    "pages_sign.js": "b1b71c64",
     "runtime.js": "6fca0322",
     "vendors.app.js": "7ea1d828",
-    "vendors.pages_index_admin_index_article.js": "37ae9b78"
+    "vendors.pages_admin_article.js": "0d8ffa5c"
   }
 }
