@@ -10,7 +10,8 @@ const app = new Koa()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
 
-mongoose.connect('mongodb://127.0.0.1:27017/fourteen', {useNewUrlParser: true, autoIndex: false}, (err) => {
+let url = process.env.NODE_ENV === 'production' ? 'mongodb://webUser:13750014932@127.0.0.1:27017/fourteen' : 'mongodb://127.0.0.1:27017/fourteen'
+mongoose.connect(url, {useNewUrlParser: true, autoIndex: false}, (err) => {
   if (err) {
     console.log(err)
   } else {
