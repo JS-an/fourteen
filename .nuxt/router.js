@@ -6,13 +6,13 @@ const _106e2092 = () => interopDefault(import('..\\pages\\admin.vue' /* webpackC
 const _3be4f758 = () => interopDefault(import('..\\pages\\admin\\article.vue' /* webpackChunkName: "pages_admin_article" */))
 const _6e882717 = () => interopDefault(import('..\\pages\\admin\\links.vue' /* webpackChunkName: "pages_admin_links" */))
 const _339e5246 = () => interopDefault(import('..\\pages\\admin\\user.vue' /* webpackChunkName: "pages_admin_user" */))
-const _3a23dff9 = () => interopDefault(import('..\\pages\\article.vue' /* webpackChunkName: "pages_article" */))
-const _6d65c311 = () => interopDefault(import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */))
+const _4a2b8b2e = () => interopDefault(import('..\\pages\\article\\index.vue' /* webpackChunkName: "pages_article_index" */))
 const _cdc1f728 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages_home" */))
 const _a149b008 = () => interopDefault(import('..\\pages\\links.vue' /* webpackChunkName: "pages_links" */))
 const _6eaf636c = () => interopDefault(import('..\\pages\\sign.vue' /* webpackChunkName: "pages_sign" */))
 const _03819506 = () => interopDefault(import('..\\pages\\account\\setpassword.vue' /* webpackChunkName: "pages_account_setpassword" */))
 const _25dbdd0a = () => interopDefault(import('..\\pages\\account\\user.vue' /* webpackChunkName: "pages_account_user" */))
+const _6d65c311 = () => interopDefault(import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */))
 const _420266d6 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -91,13 +91,8 @@ export function createRouter() {
       }]
     }, {
       path: "/article",
-      component: _3a23dff9,
-      name: "article",
-      children: [{
-        path: ":id?",
-        component: _6d65c311,
-        name: "article-id"
-      }]
+      component: _4a2b8b2e,
+      name: "article"
     }, {
       path: "/home",
       component: _cdc1f728,
@@ -118,6 +113,10 @@ export function createRouter() {
       path: "/account/user",
       component: _25dbdd0a,
       name: "account-user"
+    }, {
+      path: "/article/:id",
+      component: _6d65c311,
+      name: "article-id"
     }, {
       path: "/",
       component: _420266d6,

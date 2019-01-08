@@ -15,6 +15,9 @@ router.get('/api/getAccounts', user.getAccounts)
 
 // 文章
 router.get('/api/getArticleList', article.getArticleList)
+router.get('/api/getArticle', article.getArticle)
 router.post('/api/addArticle', article.addArticle)
+router.put('/api/editArticle', article.editArticle)
+router.delete('/api/deleteArticle', article.deleteArticle)
 
 module.exports = router

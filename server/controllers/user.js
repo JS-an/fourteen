@@ -22,7 +22,7 @@ module.exports.isSignIn = async (ctx, next) => {
       ctx.body = { account, role }
     }
   } else {
-    ctx.body = 'token不存在或已过期'
+    ctx.body = false
   }
 }
 
