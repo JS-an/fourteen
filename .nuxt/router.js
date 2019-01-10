@@ -7,6 +7,7 @@ const _3be4f758 = () => interopDefault(import('..\\pages\\admin\\article.vue' /*
 const _6e882717 = () => interopDefault(import('..\\pages\\admin\\links.vue' /* webpackChunkName: "pages_admin_links" */))
 const _339e5246 = () => interopDefault(import('..\\pages\\admin\\user.vue' /* webpackChunkName: "pages_admin_user" */))
 const _4a2b8b2e = () => interopDefault(import('..\\pages\\article\\index.vue' /* webpackChunkName: "pages_article_index" */))
+const _8b0518e0 = () => interopDefault(import('..\\pages\\empty.vue' /* webpackChunkName: "pages_empty" */))
 const _cdc1f728 = () => interopDefault(import('..\\pages\\home.vue' /* webpackChunkName: "pages_home" */))
 const _a149b008 = () => interopDefault(import('..\\pages\\links.vue' /* webpackChunkName: "pages_links" */))
 const _6eaf636c = () => interopDefault(import('..\\pages\\sign.vue' /* webpackChunkName: "pages_sign" */))
@@ -93,6 +94,10 @@ export function createRouter() {
       path: "/article",
       component: _4a2b8b2e,
       name: "article"
+    }, {
+      path: "/empty",
+      component: _8b0518e0,
+      name: "empty"
     }, {
       path: "/home",
       component: _cdc1f728,

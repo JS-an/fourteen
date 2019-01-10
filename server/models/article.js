@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const moment = require('moment')
 
 const articleSchema = new mongoose.Schema({
   title: {
@@ -30,11 +31,11 @@ const articleSchema = new mongoose.Schema({
   versionKey: false
 })
 
-articleSchema.pre('save', (next) => {
+articleSchema.pre('save', function (next) {
   if (this.isNew) {
-    this.createTime = Date.now()
+    this.createTime = moment().format('YYYY-MM-DD HH:mm:ss')
   }
-  this.updateTime = Date.now()
+  this.updateTime = moment().format('YYYY-MM-DD HH:mm:ss')
   next()
 })
 
@@ -53,18 +54,17 @@ articleSchema.statics = {
   },
   // 修改文章
   async editArticle ( id, newdoc) {
-    return await this.findById(id).exec((err, doc) => {
-      if (err) {
-        return false
-      } else {
-        doc.title = newdoc.title
-        doc.cover = newdoc.cover
-        doc.main = newdoc.main
-        doc.view = newdoc.view
-        doc.save()
-        return true
-      }
-    })
+    let doc = await this.findById(id)
+    if (doc) {
+      doc.title = newdoc.title
+      doc.cover = newdoc.cover
+      doc.main = newdoc.main
+      doc.view = newdoc.view
+      doc.save()
+      return true
+    } else {
+      return false
+    }
   },
   // 删除文章
   async deleteArticle (id) {
