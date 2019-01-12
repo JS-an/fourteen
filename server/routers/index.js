@@ -1,6 +1,7 @@
 const Router = require('koa-router')
 const user = require('../controllers/user')
 const article = require('../controllers/article')
+const comment = require('../controllers/comment')
 
 const router = new Router()
 
@@ -19,5 +20,9 @@ router.get('/api/getArticle', article.getArticle)
 router.post('/api/addArticle', article.addArticle)
 router.put('/api/editArticle', article.editArticle)
 router.delete('/api/deleteArticle', article.deleteArticle)
+
+// 评论
+router.get('/api/getCommentList', comment.getCommentList)
+router.post('/api/addComment', comment.addComment)
 
 module.exports = router
