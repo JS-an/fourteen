@@ -40,6 +40,16 @@ commentSchema.statics = {
   },
   async addComment (doc) {
     let comment = new commentModle(doc)
+    let commentList = await this.find({ source: doc.source })
+    let count = 1
+    if (commentList) {
+      commentList.forEach(el => {
+        count = (el.floor > count) ? el.floor : count + 1
+      })
+      comment.floor = count
+    } else {
+      comment.floor = count
+    }
     return comment.save()
   }
 }

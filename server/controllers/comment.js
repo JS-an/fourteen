@@ -12,11 +12,11 @@ module.exports.getCommentList = async (ctx, next) => {
 }
 
 module.exports.addComment = async (ctx, next) => {
-  const { source, main, user, floor } = ctx.request.body
-  await Comment.addComment({ source, main, user, floor })
+  const { source, main, user } = ctx.request.body
+  await Comment.addComment({ source, main, user })
     .then(res => {
       if (res) {
-        ctx.body = true
+        ctx.body = res
       } else {
         ctx.body = false
       }
