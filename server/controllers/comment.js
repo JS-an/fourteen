@@ -25,3 +25,18 @@ module.exports.addComment = async (ctx, next) => {
       console.log(err)
     })
 }
+
+module.exports.addReply = async (ctx, next) => {
+  const { id, reply } = ctx.request.body
+  await Comment.addReply(id, reply)
+    .then(res => {
+      if (res) {
+        ctx.body = res
+      } else {
+        ctx.body = false
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}

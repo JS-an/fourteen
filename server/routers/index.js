@@ -24,5 +24,6 @@ router.delete('/api/deleteArticle', article.deleteArticle)
 // 评论
 router.get('/api/getCommentList', comment.getCommentList)
 router.post('/api/addComment', comment.addComment)
+router.post('/api/addReply', comment.addReply)
 
 module.exports = router

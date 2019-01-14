@@ -44,12 +44,18 @@ commentSchema.statics = {
     let count = 1
     if (commentList) {
       commentList.forEach(el => {
-        count = (el.floor > count) ? el.floor : count + 1
+        count = (el.floor > count) ? el.floor + 1 : count + 1
       })
       comment.floor = count
     } else {
       comment.floor = count
     }
+    return comment.save()
+  },
+  async addReply (id, reply) {
+    let comment = await this.findById(id)
+    reply.replyTime = moment().format('YYYY-MM-DD HH:mm:ss')
+    comment.reply.push(reply)
     return comment.save()
   }
 }
