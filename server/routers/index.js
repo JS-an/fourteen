@@ -13,6 +13,12 @@ router.post('/api/register', user.register)
 router.post('/api/login', user.login)
 router.delete('/api/logout', user.logout)
 router.get('/api/getAccounts', user.getAccounts)
+//用户管理
+router.put('/api/setPassword', user.setPassword)
+router.post('/api/upload', ...user.upload)
+router.get('/api/images/head/:id', user.getImage)
+router.get('/api/getUser', user.getUser)
+router.put('/api/editUser', user.editUser)
 
 // 文章
 router.get('/api/getArticleList', article.getArticleList)

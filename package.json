@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.4.0",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-multer": "^1.0.2",
     "koa-router": "^7.4.0",
     "markdown-it": "^8.4.2",
     "moment": "^2.23.0",

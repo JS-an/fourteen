@@ -1,25 +1,28 @@
 const User = require('../models/user')
 const auth = require('../common/auth')
+const fs = require('fs')
+const path = require('path')
+const multer = require('koa-multer')
 
 // 验证登录状态
 module.exports.isSignIn = async (ctx, next) => {
   const payload = isToken(ctx)
   if (payload) {
-    const { account, role } = payload
+    const { account, role, head } = payload
     if (Math.ceil(Date.now() / 1000) - payload.iat > 86400) {
-      const newToken = auth.getToken({ account, role })
+      const newToken = auth.getToken({ account, role, head })
       await User.getUserByAccount(account)
         .then(res => {
           res.token = newToken
           res.save()
           ctx.cookies.set('token', newToken, { maxAge: 604800000 })
-          ctx.body = { account, role }
+          ctx.body = { account, role, head }
         })
         .catch(err => {
           console.log(err)
         })
     } else {
-      ctx.body = { account, role }
+      ctx.body = { account, role, head }
     }
   } else {
     ctx.body = false
@@ -34,12 +37,12 @@ module.exports.login = async (ctx, next) => {
     .then(res => {
       if (res) {
         if (auth.verifyPassword(data.password, res.password)) {
-          const { account, role } = res
-          const token = auth.getToken({ account, role })
+          const { account, role, head } = res
+          const token = auth.getToken({ account, role, head })
           res.token =token
           res.save()
           ctx.cookies.set('token', token, { maxAge: 604800000 })
-          ctx.body = { account, role }
+          ctx.body = { account, role, head }
         } else {
           ctx.body = '密码错误'
         }
@@ -74,11 +77,97 @@ module.exports.logout = async (ctx, next) => {
     })
 }
 
-// 用户列表
+// 用户管理
+// 获取账号列表
 module.exports.getAccounts = async (ctx, next) => {
   await User.getAccounts()
     .then(res => {
       ctx.body = res
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+// 修改密码
+module.exports.setPassword = async (ctx, next) => {
+  const { account, pwd } = ctx.request.body
+  await User.setPassword(account, pwd)
+    .then(res => {
+      if (res) {
+        ctx.body = true
+      } else {
+        ctx.body = false
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+// 上传头像
+module.exports.upload = [
+  multer({storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, '../public/images/head'))
+    },
+    filename: (req, file, cb) => {
+      cb(null, `${file.originalname}`)
+    }
+  })}).single('file'),
+  async (ctx, next) => {
+    const account = ctx.req.body.account
+    fs.rename(path.join(__dirname, `../public/images/head/${ctx.req.file.originalname}`), path.join(__dirname, `../public/images/head/${account}.jpg`), (err) => {
+      if (err) {
+        console.log(err)
+      }
+    })
+    await User.getUserByAccount(account)
+      .then(res => {
+        res.head = `/api/images/head/${account}.jpg`
+        res.save()
+        ctx.body = true
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+]
+
+// 获取图片
+module.exports.getImage = async (ctx, next) => {
+  ctx.type = 'html'
+  ctx.body = await fs.createReadStream(`./server/public/images/head/${ctx.params.id}`)
+}
+
+// 获取用户信息
+module.exports.getUser = async (ctx, next) => {
+  const account = ctx.query.account
+  await User.getUserByAccount(account)
+    .then(res => {
+      if (res) {
+        const { account, nikname, github, web, information } = res
+        ctx.body = { account, nikname, github, web, information }
+      } else {
+        ctx.body = false
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+// 修改用户信息
+module.exports.editUser = async (ctx, next) => {
+  const { account, nikname, github, web, information }  = ctx.request.body
+  await User.getUserByAccount(account)
+    .then(res => {
+      res.nikname = nikname
+      res.github = github
+      res.web = web
+      res.information = information
+      res.save()
+      ctx.body = true
     })
     .catch(err => {
       console.log(err)
