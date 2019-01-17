@@ -14,6 +14,10 @@ const commentSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  user_head: {
+    type: String,
+    default: ''
+  },
   reply: {
     type: Array,
     default: []

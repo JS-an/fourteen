@@ -14,19 +14,19 @@ router.post('/api/login', user.login)
 router.delete('/api/logout', user.logout)
 router.get('/api/getAccounts', user.getAccounts)
 //用户管理
-router.put('/api/setPassword', user.setPassword)
-router.post('/api/upload', ...user.upload)
+router.put('/api/setPassword', user.isUser, user.setPassword)
+router.post('/api/upload', user.isUser, ...user.upload)
 router.get('/api/images/head/:id', user.getImage)
 router.get('/api/getUser', user.getUser)
-router.put('/api/editUser', user.editUser)
+router.put('/api/editUser', user.isUser, user.editUser)
 
 // 文章
 router.get('/api/getArticleList', article.getArticleList)
 router.get('/api/getArticle', article.getArticle)
 // 文章管理(前端判断权限)
-router.post('/api/addArticle', article.addArticle)
-router.put('/api/editArticle', article.editArticle)
-router.delete('/api/deleteArticle', article.deleteArticle)
+router.post('/api/addArticle', user.isAdmin, article.addArticle)
+router.put('/api/editArticle', user.isAdmin, article.editArticle)
+router.delete('/api/deleteArticle', user.isAdmin, article.deleteArticle)
 
 // 评论
 router.get('/api/getCommentList', comment.getCommentList)

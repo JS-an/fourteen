@@ -175,12 +175,22 @@ module.exports.editUser = async (ctx, next) => {
 }
 
 // 验证权限功能
+// 是否登录
+module.exports.isUser = async (ctx, next) => {
+  const payload = isToken(ctx)
+  if (payload) {
+    await next()
+  } else {
+    ctx.body = false
+  }
+}
+
 // 是否管理员
 module.exports.isAdmin = async (ctx, next) => {
   const payload = isToken(ctx)
   if (payload) {
     if (payload.role >= 1) {
-      next()
+      await next()
     } else {
       ctx.body = '权限不足'
     }
@@ -194,7 +204,7 @@ module.exports.isSuperAdmin = async (ctx, next) => {
   const payload = isToken(ctx)
   if (payload) {
     if (payload.role >= 2) {
-      next()
+      await next()
     } else {
       ctx.body = '权限不足'
     }
