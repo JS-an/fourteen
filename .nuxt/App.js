@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '..\\node_modules\\element-ui\\lib\\theme-chalk\\index.css'
-
 import _6f6c098b from '..\\layouts\\default.vue'
 import _777ba69c from '..\\layouts\\index.vue'
 
 const layouts = { "_default": _6f6c098b,"_index": _777ba69c }
 
 export default {
-  head: {"title":"fourteen","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My extraordinary Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+  head: {"title":"fourteen","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My extraordinary Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Funpkg.com\u002Felement-ui\u002Flib\u002Ftheme-chalk\u002Findex.css"}],"style":[],"script":[]},
 
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })

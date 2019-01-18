@@ -15,6 +15,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/element-ui/lib/theme-chalk/index.css'}
     ]
   },
 
@@ -27,7 +28,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    // 'element-ui/lib/theme-chalk/index.css'
   ],
 
   /*
