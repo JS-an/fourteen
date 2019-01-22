@@ -82,6 +82,6 @@ module.exports = {
       }
     },
     analyze: true,
-    vendor: ['element-ui']
+    vendor: ['element-ui', 'axios']
   }
 }

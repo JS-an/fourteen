@@ -19,11 +19,15 @@ router.post('/api/upload', user.isUser, ...user.upload)
 router.get('/api/images/head/:id', user.getImage)
 router.get('/api/getUser', user.getUser)
 router.put('/api/editUser', user.isUser, user.editUser)
+// 超级用户管理
+router.get('/api/getUserList', user.isSuperAdmin, user.getUserList)
+router.put('/api/updateUserAll', user.isSuperAdmin, user.updateUserAll)
+router.delete('/api/deleteUserAll', user.isSuperAdmin, user.deleteUserAll)
 
 // 文章
 router.get('/api/getArticleList', article.getArticleList)
 router.get('/api/getArticle', article.getArticle)
-// 文章管理(前端判断权限)
+// 文章管理(前端判断进入页面权限)
 router.post('/api/addArticle', user.isAdmin, article.addArticle)
 router.put('/api/editArticle', user.isAdmin, article.editArticle)
 router.delete('/api/deleteArticle', user.isAdmin, article.deleteArticle)
@@ -32,5 +36,9 @@ router.delete('/api/deleteArticle', user.isAdmin, article.deleteArticle)
 router.get('/api/getCommentList', comment.getCommentList)
 router.post('/api/addComment', comment.addComment)
 router.post('/api/addReply', comment.addReply)
+
+// 友链
+router.get('/api/getLinks', user.getLinks)
+router.put('/api/linkShow', user.linkShow)
 
 module.exports = router

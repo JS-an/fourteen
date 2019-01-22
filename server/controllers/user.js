@@ -174,6 +174,39 @@ module.exports.editUser = async (ctx, next) => {
     })
 }
 
+// 得到用户列表
+module.exports.getUserList = async (ctx, next) => {
+  await User.getUserList()
+    .then(doc => {
+      ctx.body = doc
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+// 更新用户全部信息
+module.exports.updateUserAll = async (ctx, next) => {
+  let { user, _id } = ctx.request.body
+  await User.getUserById(_id)
+    .then(doc => {
+      Object.assign(doc, user)
+      doc.save()
+      ctx.body = true
+    })
+}
+
+// 删除用户
+module.exports.deleteUserAll = async (ctx, next) => {
+  let id = ctx.query.id
+  await User.deleteUserAll(id)
+    .then(doc => {
+      if (doc) {
+        ctx.body = true
+      }
+    })
+}
+
 // 验证权限功能
 // 是否登录
 module.exports.isUser = async (ctx, next) => {
@@ -226,4 +259,29 @@ function isToken (ctx) {
   } else {
     return false
   }
+}
+
+// Links
+// 得到友链
+module.exports.getLinks = async (ctx, next) => {
+  await User.getLinks()
+    .then((res) => {
+      ctx.body = res
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
+// 是否展示链接
+module.exports.linkShow = async (ctx, next) => {
+  await User.getUserByAccount(ctx.request.body.account)
+    .then((res) => {
+      res.show = !res.show
+      res.save()
+      ctx.body = true
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
