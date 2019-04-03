@@ -1,6 +1,6 @@
 # fourteen
 
-[SSR WEB](http://129.204.110.70 "ssrWEB")
+> My extraordinary Nuxt.js project
 
 ## Build Setup
 
@@ -19,4 +19,4 @@ $ yarn start
 $ yarn run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org) 
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
